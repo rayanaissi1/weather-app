@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    /* Background similar to iOS weather app */
+    background: linear-gradient(180deg, #3b5998, #192f60);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Weather Card */
+.card {
+    width: 90%;
+    max-width: 470px;
+    background: rgba(255, 255, 255, 0.1); /* Frosted glass effect */
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(10px); /* Frosted Glass Effect */
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Search Box */
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search input {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 12px 20px;
+    height: 55px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+    outline: none;
+}
+
+.search input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search button {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.search button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.search button img {
+    width: 16px;
+}
+
+/* Weather Icon */
+.weather-icon {
+    width: 150px;
+    margin-top: 20px;
+}
+
+/* Temperature */
+.weather h1 {
+    font-size: 80px;
+    font-weight: 500;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* City */
+.weather h2 {
+    font-size: 35px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+
+/* Weather Details */
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Each Detail Column */
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+/* Humidity & Wind Styling */
+.humidity, .wind {
+    font-size: 18px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.humidity:hover, .wind:hover {
+    transform: scale(1.1);
+}
+
+/* Error Message */
+.error {
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+    color: red;
+}
+
+/* Animated Raindrop Effect */
+@keyframes rain {
+    0% { transform: translateY(0px); opacity: 1; }
+    100% { transform: translateY(100px); opacity: 0; }
+}
+
+.rain-drop {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.4);
+    opacity: 0;
+    animation: rain 1s linear infinite;
+}
+
+/* Generating Raindrops */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
+    background-size: 5px 5px;
+}
