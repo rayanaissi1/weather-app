@@ -6,7 +6,6 @@ The Weather App is a sleek and modern web application that allows users to check
 ✅ City Search – Users can search for weather details by entering a city name.
 
 🛠️ Technologies Used
-
 Frontend: HTML, CSS (Glassmorphism UI), JavaScript
 API: OpenWeather API
 
